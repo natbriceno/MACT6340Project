@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Nat Briceno</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="navbar-container"></div>
+
+    <section id="about" class="bg-light text-center">
+        <div class="container">
+            <h2>About</h2>
+            <p>A personal NFT mint for an artist. Learn more about my journey in generative art.</p>
+        </div>
+    </section>
+
+    <script>
+        fetch('navbar.ejs')
+            .then(response => response.text())
+            .then(data => document.getElementById('navbar-container').innerHTML = data);
+    </script>
+</body>
+</html>
