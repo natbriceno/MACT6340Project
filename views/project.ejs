@@ -1,19 +1,28 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv"content-type" content=" "text/html; charset="utf-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-        <title>Project</title>
-        <meta name="author" content="Nat Briceno">
-        <meta name="description" content="A page for one project.">
-        <link rel="stylesheet" href="./css/styles.css">
-    </head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= project.title %></title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div id="navbar-container"></div>
 
-    <body>
+    <section id="project-detail" class="container bg-light text-center">
+        <h2><%= project.title %></h2>
+        <img src="/images/<%= project.image %>" alt="<%= project.title %>">
+        <p><%= project.description %></p>
+        <p><strong>Date:</strong> <%= project.date %></p>
+        <a href="/projects">Back to Projects</a>
+    </section>
 
-        <div>Project</div>
-        <script type="module" src="./js/index.js"></script>
-    </body>
+    <script>
+        fetch('/navbar.ejs')
+            .then(response => response.text())
+            .then(data => document.getElementById('navbar-container').innerHTML = data);
+    </script>
+</body>
 </html>
+
+

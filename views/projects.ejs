@@ -3,25 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects - Nat Briceno</title>
+    <title>Projects</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <div id="navbar-container"></div>
 
-    <section id="projects" class="text-center">
-        <div class="container">
-            <h2>Projects</h2>
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <img src="images/project1.jpg" class="card-img-top" alt="Project 1">
-                        <div class="card-body">
-                            <p class="card-text">A project description will one day live here.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <section id="projects" class="container bg-light text-center">
+        <h2>Projects</h2>
+        <div class="project-list">
+            <% /* Existing project list content retained */ %>
+            <%- include('projects-content') %>
         </div>
     </section>
 

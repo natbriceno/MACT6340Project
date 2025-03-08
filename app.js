@@ -1,6 +1,5 @@
 import express from "express";
 import dotenv from "dotenv";
-import * as utils from "./utils/utils.js";
 dotenv.config();
 
 const app = express();
@@ -9,27 +8,37 @@ app.set("view engine", "ejs");
 app.use(express.json());
 app.use(express.static("public"));
 
+// Simulated database as an array
+const projects = [
+    { id: 1, title: "Project One", image_url: "/images/project1.jpg", description: "Description for project one." },
+    { id: 2, title: "Project Two", image_url: "/images/project2.jpg", description: "Description for project two." },
+    { id: 3, title: "Project Three", image_url: "/images/project3.jpg", description: "Description for project three." }
+];
+
+// Home Route with Random Featured Project
 app.get("/", (req, res) => {
-  res.render("index.ejs");
+    const randomIndex = Math.floor(Math.random() * projects.length);
+    const featuredProject = projects[randomIndex];
+    res.render("index", { featuredProject });
 });
 
-app.get("/about", (req, res) => res.render("about"));
-app.get("/projects", (req, res) => res.render("projects"));
-app.get("/newProject", (req, res) => res.render("newProject"));
-app.get("/contact", (req, res) => res.render("contact"));
+// Projects Page Route
+app.get("/projects", (req, res) => {
+    res.render("projects", { projects });
+});
 
-
-app.post("/mail", async (req, res) => {
-  await utils
-    .sendMessage(req.body.sub, req.body.txt)
-    .then(() => {
-      res.send({ result: "success" });
-    })
-    .catch(() => {
-      res.send({ result: "failure" });
-    });
+// Individual Project Page Route
+app.get("/projects/:id", (req, res) => {
+    const projectId = parseInt(req.params.id);
+    const project = projects.find(p => p.id === projectId);
+    if (project) {
+        res.render("project", { project });
+    } else {
+        res.status(404).send("Project not found");
+    }
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+    console.log(`Server running on port ${port}`);
 });
+
