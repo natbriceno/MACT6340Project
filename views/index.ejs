@@ -29,38 +29,27 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="text-center">
-        <div class="container">
-            <h2>Projects</h2>
-            <div class="row row-cols-1 row-cols-md-3 g-4">
+<!-- Projects Section -->
+<section id="projects" class="text-center">
+    <div class="container">
+        <h2>Projects</h2>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <% projects.forEach(function(project) { %>
                 <div class="col">
                     <div class="card">
-                        <img src="/images/black.jpg" class="card-img-top" alt="Project 1">
+                        <img src="<%= project.image_url %>" class="card-img-top" alt="<%= project.title %>">
                         <div class="card-body">
-                            <p class="card-text">A project description will one day live here.</p>
+                            <h5 class="card-title"><%= project.title %></h5>
+                            <p class="card-text"><%= project.description %></p>
+                            <a href="/projects/<%= project.id %>" class="btn btn-primary">View Project</a>
                         </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="card">
-                        <img src="/images/black.jpg" class="card-img-top" alt="Project 2">
-                        <div class="card-body">
-                            <p class="card-text">A project description will one day live here.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <img src="/images/black.jpg" class="card-img-top" alt="Project 3">
-                        <div class="card-body">
-                            <p class="card-text">A project description will one day live here.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <% }); %>
         </div>
-    </section>
+    </div>
+</section>
+
 
     <!-- About Section -->
     <section id="about" class="bg-light text-center">

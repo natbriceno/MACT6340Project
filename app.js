@@ -10,16 +10,24 @@ app.use(express.static("public"));
 
 // Simulated database as an array
 const projects = [
-    { id: 1, title: "Project One", image_url: "/images/project1.jpg", description: "Description for project one." },
-    { id: 2, title: "Project Two", image_url: "/images/project2.jpg", description: "Description for project two." },
-    { id: 3, title: "Project Three", image_url: "/images/project3.jpg", description: "Description for project three." }
+  {
+    id: 1,
+    name: "Generative NFT Mint",
+    description: "Visuals for an NFT minting experience.",
+    price: "0.05 ETH",
+    supply: 500,
+    royalties: "5%",
+    opening: "May 2025",
+    contract: "0x123...abc"
+  },
 ];
+
 
 // Home Route with Random Featured Project
 app.get("/", (req, res) => {
     const randomIndex = Math.floor(Math.random() * projects.length);
     const featuredProject = projects[randomIndex];
-    res.render("index", { featuredProject });
+    res.render("index", { featuredProject, projects });
 });
 
 // Projects Page Route
