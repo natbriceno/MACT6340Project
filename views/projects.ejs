@@ -4,23 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-    <div id="navbar-container"></div>
+
+    <%- include('partials/navbar') %>
 
     <section id="projects" class="container bg-light text-center">
         <h2>Projects</h2>
         <div class="project-list">
-            <% /* Existing project list content retained */ %>
             <%- include('projects-content') %>
         </div>
     </section>
 
-    <script>
-        fetch('navbar.ejs')
-            .then(response => response.text())
-            .then(data => document.getElementById('navbar-container').innerHTML = data);
-    </script>
 </body>
 </html>
+

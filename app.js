@@ -14,6 +14,7 @@ const projects = [
     id: 1,
     name: "Generative NFT Mint",
     description: "Visuals for an NFT minting experience.",
+    image_url: "/images/project.png",
     price: "0.05 ETH",
     supply: 500,
     royalties: "5%",
